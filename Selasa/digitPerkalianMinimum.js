@@ -2,10 +2,7 @@ function digitPerkalianMinimum(angka) {
     // you can only write your code here!
       var faktor=[]
       var pasanganFaktor=[]
-      var joinFaktor=[]
-      var joinFaktorLength=[]
-      var perkalian=0
-  
+       
         for(var i=1; i<=angka; i++){
           if(angka%i == 0){
               faktor.push(i)
@@ -13,30 +10,25 @@ function digitPerkalianMinimum(angka) {
         }
       var length= faktor.length-1
         for(var j=0; j<faktor.length/2; j++){
-        pasanganFaktor.push([faktor[j], faktor[length-j]]
+        pasanganFaktor.push((faktor[j].toString())+(faktor[length-j].toString())
           )}
-        
       
-  
-      for(var k=0; k<pasanganFaktor.length; k++){
-            joinFaktor.push(pasanganFaktor[k].join(''))
-        }
       
-      for(l=0; l<joinFaktor.length; l++){
-        joinFaktorLength.push(joinFaktor[l].length)
+      //Sorting
+      for(var k=pasanganFaktor.length-1; k>=0; k--){
+          for(var l=0; l<=k; l++){
+            if(pasanganFaktor[l].length > pasanganFaktor[k].length){
+                var tmp= pasanganFaktor[l]
+                pasanganFaktor[l]= pasanganFaktor[k]
+                pasanganFaktor[k]= tmp
+            }
+          }
       }
-  
-      var sortFaktorLength = joinFaktorLength.sort()
+
+           
       
-      for(var m=0; m<sortFaktorLength.length; m++){
-        if(sortFaktorLength[0] == sortFaktorLength[m]){
-          perkalian++
-        }
-      }
-  
-      
-      
-      return perkalian
+      return pasanganFaktor[0].length
+
   }
   
   // TEST CASES
