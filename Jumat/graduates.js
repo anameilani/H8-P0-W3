@@ -1,10 +1,7 @@
-function graduates (students) {
+function graduates(students) {
   // Code disini
   var result={}
-  if(students.length == 0){
-      return result
-  }
-  
+    
   for(var i=0; i<students.length; i++){
     var obj={
         name: students[i].name,
@@ -14,7 +11,6 @@ function graduates (students) {
       if(result[students[i].class] == undefined){
         result[students[i].class]=[]
       }
-
       if(students[i].score>75){
         result[students[i].class].push(obj)
     }
